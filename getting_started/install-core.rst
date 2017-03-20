@@ -13,9 +13,9 @@ The core components include:
 
 **Pro tip:** you can use the tags to install or skip certain components while running `install-core.yml <https://github.com/kubenow/KubeNow/blob/master/playbooks/install-core.yml>`_. For more informations please refer to the `Ansible tags documentation <http://docs.ansible.com/ansible/playbooks_tags.html>`_.
 
-.. image:: ../../img/architecture.png
+.. image:: ../img/architecture.png
 
-This kind of deployment is particularly convenient, as only the master node, and the edge nodes (that run `Traefik <https://traefik.io/>`_) need to be associated to public IPs (which can be scarce). Therefore, the end user will access the microservices running in the Kubernetes nodes, through an edge node that will act as a reverse proxy. The `Cloudflare <http://cloudflare.com>`_ service will loadbalance the requests over the edge nodes.
+This kind of deployment is particularly convenient, as only the master node, and the edge nodes (that run `Traefik`_) need to be associated to public IPs (which can be scarce). Therefore, the end user will access the microservices running in the Kubernetes nodes, through an edge node that will act as a reverse proxy. The `Cloudflare <http://cloudflare.com>`_ service will loadbalance the requests over the edge nodes.
 
 Cloudflare account configuration
 --------------------------------

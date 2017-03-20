@@ -33,7 +33,7 @@ Every OpenStack installation it's a bit different, and the RC file you get to do
 - You installed the glance command-line client in your local machine: https://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html
 
 Import the KubeNow image (only the first time you are deploying)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first time you are going to deploy KubeNow, you'll have to import its cloud image. This considerably speeds up the following bootstraps, as all of the required software will already be installed on the instances.
 
@@ -107,7 +107,7 @@ In this section we assume that:
 - You have created and downloaded a service account file for your GCE project: Api manager > Credentials > Create credentials > Service account key
 
 Import the KubeNow image (only the first time you are deploying)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first time you are going to deploy KubeNow, you'll have to import its cloud image. This considerably speeds up the following bootstraps, as all of the required software will already be installed on the instances.
 
