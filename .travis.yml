@@ -1,14 +1,12 @@
 language: python # (Ansible)
 
-sudo: required
-
 install:
 
   # Install Sphinx
-  - sudo pip install --upgrade pip
-  - sudo pip install sphinx==1.5.3
-  - sudo pip install sphinx-autobuild==0.6.0
-  - sudo pip install sphinx_rtd_theme==0.2.4
+  - pip install --upgrade pip
+  - pip install sphinx==1.5.3
+  - pip install sphinx-autobuild==0.6.0
+  - pip install sphinx_rtd_theme==0.2.4
 
 script:
   - sphinx-build -W -b html -d _build/doctrees   . _build/html
