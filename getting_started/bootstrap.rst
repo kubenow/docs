@@ -82,6 +82,8 @@ Once you are done with your settings you are ready to bootstrap the cluster usin
   terraform get openstack # get required modules (only the first time you deploy)
   terraform apply openstack # deploy the cluster
 
+While waiting for the bootstrap process to complete, it is important to avoid to abruptingly stop it (e.g by pressing ``Ctrl+C`` in the console), otherwise chances are that your local file `terraform.tfstate <https://www.terraform.io/docs/state/>`_ will likely be corrupted which can lead to technical complication in successfully deploying the cluster.
+
 If everything goes well, something like the following message will be printed::
 
   Apply complete! Resources: X added, 0 changed, 0 destroyed.
