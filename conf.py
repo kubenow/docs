@@ -69,6 +69,7 @@ if matchObj:
     version = git_version
     # The full version, including alpha/beta/rc tags.
     release = git_version
+    #print version
 else:
     version = "";
     release = "";
