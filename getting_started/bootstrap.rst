@@ -57,10 +57,30 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 - **cluster_prefix**: every resource in your tenancy will be named with this prefix
 - **KuberNow_image**: name of the image that you previously imported using Ansible
 - **ssh_key**: path to your public ssh-key to be used (for ssh node access)
-- **floating_ip_pool**: a floating IP pool name
+- **floating_ip_pool**: a floating IP pool label
 - **external_network_uuid**: the uuid of the external network in the OpenStack tenancy
 - **dns_nameservers**: (optional, only needed if you want to use other dns-servers than default 8.8.8.8 and 8.8.4.4)
 - **kubeadm_token**: a token that will be used by kubeadm, to bootstrap Kubernetes. You can run generate_kubetoken.sh to create a valid one.
+
+If you are wondering where you can correctly get a `floating_ip_pool` and an `external_network_uuid`, then one way is to inquiry our OpenStack tenacy settings. You can easily and quickly achieve this by installing one of the OpenStack command-line interface called `nova` . Installation occurs via ``pip``, however please refer to the offical `OpenStack documentation <https://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html>`_ in depth details.
+
+Once `nova` is installed, run the following command::
+    
+    nova network-list
+
+Depending on your tenacy settings you should get a similar output::
+
+    +--------------------------------------+----------------+------+
+    | ID                                   | Label          | Cidr |
+    +--------------------------------------+----------------+------+
+    | 5f274562-89b6-4ab2-a18f-94b159b0b85d | internal       | -    |
+    | d9384930-baa5-422b-8657-1d42fb54f89c | net_external   | -    |
+    +--------------------------------------+----------------+------+
+
+Thus in this specific case the above mentioned fields will be set as following::
+
+    floating_ip_pool: net_external
+    external_network_uuid: d9384930-baa5-422b-8657-1d42fb54f89c
 
 **Master configuration**
 
@@ -76,6 +96,28 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 - **edge_count**: number of egde nodes to be created
 - **edge_flavor**: an instance flavor for the edge nodes
+
+If you are wondering yet again where you can fetch correct flavor label names then no worries, you are not being a stranger here. The nova command-line interface will come in handy. Just run the following command::
+
+    nova flavor-list
+    
+Depending on your tenacy settings you should get a similar output::
+
+    +--------+------------+-----------+------+-----------+------+-------+-------------+----------+
+    | ID     | Name       | Memory_MB | Disk | Ephemeral | Swap | VCPUs | RXTX_Factor | Is_Public|
+    +--------+------------+-----------+------+-----------+------+-------+-------------+----------+
+    | 8c7ef1 | ssc.tiny   | 512       | 1    | 0         |      | 1     | 1.0         | True     |
+    | 8d7ef2 | ssc.small  | 2048      | 20   | 0         |      | 1     | 1.0         | True     |
+    | 8e7ef3 | ssc.medium | 4096      | 40   | 0         |      | 2     | 1.0         | True     |
+    | 8f7ef4 | ssc.large  | 8192      | 80   | 0         |      | 4     | 1.0         | True     |
+    | 8g7ef5 | ssc.xlarge | 16384     | 160  | 0         |      | 8     | 1.0         | True     |
+    +--------+------------+-----------+------+-----------+------+-------+-------------+----------+
+
+Based how many resources your applications require, then you may want to select the nodes' flavor accordingly. E.g.::
+
+    master_flavor: ssc.medium
+    edge_flavor:   ssc.medium
+    node_flavor:   ssc.large
 
 Once you are done with your settings you are ready to bootstrap the cluster using Terraform::
 
