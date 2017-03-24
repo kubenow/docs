@@ -62,7 +62,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 - **dns_nameservers**: (optional, only needed if you want to use other dns-servers than default 8.8.8.8 and 8.8.4.4)
 - **kubeadm_token**: a token that will be used by kubeadm, to bootstrap Kubernetes. You can run generate_kubetoken.sh to create a valid one.
 
-If you are wondering where you can correctly get a `floating_ip_pool` and an `external_network_uuid`, then one way is to inquiry our OpenStack tenacy settings. You can easily and quickly achieve this by installing one of the OpenStack command-line interface called `nova` . Installation occurs via ``pip``, however please refer to the offical `OpenStack documentation <https://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html>`_ in depth details.
+If you are wondering where you can correctly get a `floating_ip_pool` and an `external_network_uuid`, then one way is to inquiry your OpenStack settings. You can easily and quickly achieve this by installing one of the OpenStack command-line interface called `nova` . Installation occurs via ``pip``, however please refer to the offical `OpenStack documentation <https://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html>`_ in depth details.
 
 Once `nova` is installed, run the following command::
     
