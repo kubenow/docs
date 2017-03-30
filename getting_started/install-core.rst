@@ -41,3 +41,11 @@ Once you are done with the Cloudflare account configuration, you can deploy the 
 To make sure that each service is running you can run the following command::
 
   ansible-playbook playbooks/infra-test.yml
+
+It may happen that the test will return the following error::
+
+    FAILED! => {"failed": true, "msg": "An unhandled exception occurred while running 
+    the lookup plugin 'dig'. Error was a <class 'ansible.errors.AnsibleError'>, original message: 
+    Can't LOOKUP(dig): module dns.resolver is not installed"}
+
+If this is the case, then as it can be deduced by the error message, the dns python module is missing. Installing the module ``dnspython`` via ``pip`` (i.e. ``pip install dnspython``) will fix the glitch and allow the test to perform correctly. See the issue reported in the `Ansible GitHub discussion <https://github.com/ansible/ansible/issues/19719>`_ for in depth details.
