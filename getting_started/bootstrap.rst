@@ -68,7 +68,7 @@ Once `nova` is installed, run the following command::
     
     nova network-list
 
-Depending on your tenacy settings you should get a similar output::
+Depending on your tenancy settings you should get a similar output::
 
     +--------------------------------------+----------------+------+
     | ID                                   | Label          | Cidr |
