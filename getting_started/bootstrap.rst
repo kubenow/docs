@@ -101,7 +101,7 @@ If you are wondering yet again where you can fetch correct flavor label names th
 
     nova flavor-list
     
-Depending on your tenacy settings you should get a similar output::
+Depending on your tenancy settings you should get a similar output::
 
     +--------+------------+-----------+------+-----------+------+-------+-------------+----------+
     | ID     | Name       | Memory_MB | Disk | Ephemeral | Swap | VCPUs | RXTX_Factor | Is_Public|
