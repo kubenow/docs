@@ -8,8 +8,9 @@ Every time there is a change in the documentation, [Read The Docs](https://readt
 To build the documentation locally you will need [Sphinx](http://www.sphinx-doc.org/), and the RDT theme:
 
 ```bash
-sudo pip install sphinx sphinx-autobuild
-sudo pip install sphinx_rtd_theme
+pip install sphinx
+pip install sphinx-autobuild
+pip install sphinx_rtd_theme
 ```
 
 ### Build via make
