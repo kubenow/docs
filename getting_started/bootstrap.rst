@@ -15,20 +15,6 @@ Prerequisites
 In this section we assume that:
 
 - You have downloaded and sourced the OpenStack RC file for your tenancy: ``source project-openrc.sh`` https://docs.openstack.org/user-guide/common/cli-set-environment-variables-using-openstack-rc.html#download-and-source-the-openstack-rc-file
-
-Every OpenStack installation it's a bit different, and the RC file you get to download from the interface might be incomplete. Please make sure that all of these environment variables are set in the RC file::
-
-  OS_USERNAME
-  OS_PASSWORD
-  OS_AUTH_URL
-  OS_USER_DOMAIN_ID
-  OS_DOMAIN_ID
-  OS_REGION_NAME
-  OS_PROJECT_ID
-  OS_TENANT_ID
-  OS_TENANT_NAME
-  OS_AUTH_VERSION
-
 - You have a floating IP quota that allows to allocate a public IP for each master and edge node (at least 2 in total)
 - You installed the glance command-line client in your local machine: https://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html
 
