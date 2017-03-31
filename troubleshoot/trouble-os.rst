@@ -16,12 +16,10 @@ Show console output from node of interest::
 
   nova console-log <node-id>
 
-Terraform and/or Packer Bbootstrap error
-----------------------------------------
-The OpenStack provider is used to interact with the many resources supported by OpenStack. The provider needs to be configured with the proper credentials before it can be used.
-
-During the bootstrap steps, when applying the terraform and/or packer commands you may be prompted with the following error::
+Missing DomainID or DomainName to authenticate by Username
+----------------------------------------------------------
+When running terraform and/or packer you may be prompted with the following error::
 
     You must provide exactly one of DomainID or DomainName to authenticate by Username
     
-If this is the case, then you need to set either ``OS_DOMAIN_ID`` or ``OS_DOMAIN_NAME`` in your OpenStack environment.
+If this is the case, then setting either ``OS_DOMAIN_ID`` or ``OS_DOMAIN_NAME`` in your environment should fix the issue. For further information, please refer to this document: https://www.terraform.io/docs/providers/openstack/index.html.
