@@ -1,7 +1,7 @@
 Image build instructions
 ========================
 
-KubeNow uses prebuilt images to speed up the deployment. Even if we provide some prebuilt images you may need to build it yourself. The procedure is slightly different for each host cloud. Here you find a section for each of the supported providers.
+KubeNow uses prebuilt images to speed up the deployment. Even if we provide some prebuilt images you may need to build it yourself. The image building process involves the use of `Packer <http://packer.io/>`_ (0.12.3 or higher), so you will need to install it on your workstation. The procedure is slightly different for each host cloud. Here you find a section for each of the supported providers.
 
 .. contents:: Sections
   :depth: 2
