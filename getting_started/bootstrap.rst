@@ -223,10 +223,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 **Cluster configuration**
 
 - **cluster_prefix**: every resource in your tenancy will be named with this prefix
-- **kubenow_image_id**: please use one of the prebuilt images ID. You can figure it out in the release notes (https://github.com/kubenow/KubeNow/releases).
-
-  + **Warning:** choose the image according to the region you want to use
-
+- **kubenow_image**: name of the current kubenow image
 - **kubeadm_token**: a token that will be used by kubeadm, to bootstrap Kubernetes. You can run `generate_kubetoken.sh` to create a valid one.
 - **ssh_key**: path to your public ssh-key to be used for ssh node access (e.g. ``~/.ssh/id_rsa.pub``)
 - **aws_region**: the region where your cluster will be bootstrapped (e.g. ``eu-west-1``)
@@ -256,6 +253,14 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 - **edge_count**: number of egde nodes to be created
 - **edge_instance_type**: an instance type for the edge nodes (e.g. ``t2.medium``)
 - **edge_disk_size**: edges disk size in GB
+
+**Network configuration (optional)**
+
+Override the following variables if you want kubenow to be deployed in an already existing VPC and subnet or security-group.
+
+- **vpc_id**: id of an excisting VPC where kubenow nodes is to be created (always together with subnet_id)
+- **subnet_id**: id of an excisting subnet where kubenow nodes is to be created (always together with vpc_id)
+- **additional_sec_group_ids**: list of one or many excisting security groups that should be added to kubenow nodes
 
 Once you are done with your settings you are ready to bootstrap the cluster using Terraform::
 
