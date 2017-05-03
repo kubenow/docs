@@ -223,7 +223,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 **Cluster configuration**
 
 - **cluster_prefix**: every resource in your tenancy will be named with this prefix
-- **kubenow_image**: name of the current kubenow image
+- **kubenow_image**: name of the KubeNow image that you want to use
 - **kubeadm_token**: a token that will be used by kubeadm, to bootstrap Kubernetes. You can run `generate_kubetoken.sh` to create a valid one.
 - **ssh_key**: path to your public ssh-key to be used for ssh node access (e.g. ``~/.ssh/id_rsa.pub``)
 - **aws_region**: the region where your cluster will be bootstrapped (e.g. ``eu-west-1``)
