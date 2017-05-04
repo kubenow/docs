@@ -256,11 +256,11 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 **Network configuration (optional)**
 
-Override the following variables if you want kubenow to be deployed in an already existing VPC and subnet or security-group.
+Override the following variables if you want KubeNow to be deployed with an existing VPC and subnet, or security-group.
 
-- **vpc_id**: id of an excisting VPC where kubenow nodes is to be created (always together with subnet_id)
-- **subnet_id**: id of an excisting subnet where kubenow nodes is to be created (always together with vpc_id)
-- **additional_sec_group_ids**: list of one or many excisting security groups that should be added to kubenow nodes
+- **vpc_id**: ID of an existing VPC (to be defined together with ``subnet_id``)
+- **subnet_id**: ID of an existing subnet (to be defined together with ``vpc_id``)
+- **additional_sec_group_ids**: list of one or many existing security groups 
 
 Once you are done with your settings you are ready to bootstrap the cluster using Terraform::
 
