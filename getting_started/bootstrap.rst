@@ -256,7 +256,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 **Network configuration (optional)**
 
-Override the following variables if you want KubeNow to be deployed with an existing VPC and subnet, or security-group.
+Define the following variables if you want KubeNow to be deployed with an existing VPC and subnet, or security group(s).
 
 - **vpc_id**: ID of an existing VPC (to be defined together with ``subnet_id``)
 - **subnet_id**: ID of an existing subnet (to be defined together with ``vpc_id``)
