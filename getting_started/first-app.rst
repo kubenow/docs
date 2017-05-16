@@ -21,7 +21,7 @@ If everything goes well you should see some front-ends and back-ends showing up 
 - http://cheddar.yourdomain.com
 - http://wensleydale.yourdomain.com
 
-One simply and quick way to access the Traefik UI is to tunnel via SSH to one of the edge nodes with the following command::
+One simple and quick way to access the Traefik UI is to tunnel via SSH to one of the edge nodes with the following command::
 
     ssh -N -f -L localhost:8080:localhost:8080 ubuntu@<edge1-floating-ip>
 
