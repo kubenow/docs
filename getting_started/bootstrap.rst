@@ -71,7 +71,7 @@ Thus in this specific case the above mentioned fields will be set as following::
 **Master configuration**
 
 - **master_flavor**: an instance flavor for the master
-- **master_act_as_edge**: master is acting as gateway for accessing services
+- **master_as_edge**: master is acting as gateway for accessing services
 
 **Node configuration**
 
@@ -185,7 +185,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 - **master_flavor**: an instance flavor for the master (e.g. ``n1-standard-1``)
 - **master_disk_size**: master disk size in GB
-- **master_act_as_edge**: master is acting as gateway for accessing services
+- **master_as_edge**: master is acting as gateway for accessing services
 
 **Node configuration**
 
@@ -265,7 +265,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 - **master_instance_type**: an instance type for the master (e.g. ``t2.medium``)
 - **master_disk_size**: master disk size in GB
-- **master_act_as_edge**: master is acting as gateway for accessing services
+- **master_as_edge**: master is acting as gateway for accessing services
 
 **Node configuration**
 
