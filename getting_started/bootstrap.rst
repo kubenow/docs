@@ -73,19 +73,6 @@ Thus in this specific case the above mentioned fields will be set as following::
 - **master_flavor**: an instance flavor for the master
 - **master_as_edge**: master is acting as gateway for accessing services
 
-**Node configuration**
-
-- **node_count**: number of Kubernetes nodes to be created (no floating IP is needed for these nodes)
-- **node_flavor**: an instance flavor name for the Kubernetes nodes
-- **node_flavor_id**: this is an alternative way of specifying the instance flavor (optional, please set this only if **node_flavor** is empty)
-
-**Edge configuration**
-
-In KubeNow setup, the edge nodes (and in default setup also the the master), act as gateways with public ip:s to give access to the services running in the Kubernetes nodes. Edge nodes are ordinary worker nodes that also have an "edge" label and therefore kubernetes will run a gateway pod on these nodes. If you just do an informal deployment and don't need to load balance your service requests, the default setup with only master node acting as a gateway might be sufficient. Otherwise you could balance your service requests on 2-3 edge nodes.
-
-- **edge_count**: number of egde nodes to be created
-- **edge_flavor**: an instance flavor for the edge nodes
-
 If you are wondering yet again where you can fetch correct flavor label names then no worries, you are not being a stranger here. The nova command-line interface will come in handy. Just run the following command::
 
     nova flavor-list
@@ -107,6 +94,19 @@ Based how many resources your applications require, then you may want to select 
     master_flavor: ssc.medium
     edge_flavor:   ssc.medium
     node_flavor:   ssc.large
+
+**Node configuration**
+
+- **node_count**: number of Kubernetes nodes to be created (no floating IP is needed for these nodes)
+- **node_flavor**: an instance flavor name for the Kubernetes nodes
+- **node_flavor_id**: this is an alternative way of specifying the instance flavor (optional, please set this only if **node_flavor** is empty)
+
+**Edge configuration**
+
+In KubeNow setup, the edge nodes (and in default setup also the the master), act as gateways with public ip:s to give access to the services running in the Kubernetes nodes. Edge nodes are ordinary worker nodes that also have an "edge" label and therefore kubernetes will run a gateway pod on these nodes. If you just do an informal deployment and don't need to load balance your service requests, the default setup with only master node acting as a gateway might be sufficient. Otherwise you could balance your service requests on 2-3 edge nodes.
+
+- **edge_count**: number of egde nodes to be created
+- **edge_flavor**: an instance flavor for the edge nodes
     
 **Access configuration (optional)**
 
