@@ -71,6 +71,7 @@ Thus in this specific case the above mentioned fields will be set as following::
 **Master configuration**
 
 - **master_flavor**: an instance flavor for the master
+- **master_act_as_edge**: master is acting as gateway for accessing services
 
 **Node configuration**
 
@@ -79,6 +80,8 @@ Thus in this specific case the above mentioned fields will be set as following::
 - **node_flavor_id**: this is an alternative way of specifying the instance flavor (optional, please set this only if **node_flavor** is empty)
 
 **Edge configuration**
+
+In KubeNow setup, the edge nodes (and in default setup also the the master), act as gateways with public ip:s to give access to the services running in the Kubernetes nodes. Edge nodes are ordinary worker nodes that also have an "edge" label and therefore kubernetes will run a gateway pod on these nodes. If you just do an informal deployment and don't need to load balance your service requests, the default setup with only master node acting as a gateway might be sufficient. Otherwise you could balance your service requests on 2-3 edge nodes.
 
 - **edge_count**: number of egde nodes to be created
 - **edge_flavor**: an instance flavor for the edge nodes
@@ -104,6 +107,15 @@ Based how many resources your applications require, then you may want to select 
     master_flavor: ssc.medium
     edge_flavor:   ssc.medium
     node_flavor:   ssc.large
+    
+**Access configuration (optional)**
+
+Typically, you want the end user to access your services through a domain name (e.g. ``servicename.mydomain.com``). One option is to manually configure the DNS services, for a domain name and to load balance the requests among the edge nodes. However, doing this for each deployment can be tedious, and prone to configuration errors. If you just do an informal deployment and don't have a domain name to be used, KubeNow is automatically configuring your setup with the free `nip.io service <http://nip.io/>`_. Otherwise, we recommend to sign up for a free account on `Cloudflare <https://www.cloudflare.com>`_, that you can use as dynamic DNS service for your domain name.
+
+- **use_cloudflare**: set to true if you want KubeNow to configure your cloudflare settings during deployment (if set to false KubeNow will use the free nip.io service instead)
+- **cloudflare_email**: the mail that you used to register your Cloudflare account
+- **cloudflare_token**: an authentication token that you can generate from the Cloudflare web interface
+- **cloudflare_domain**: a zone that you created in your Cloudflare account. This typically matches your domain name (e.g. somedomain.com)    
 
 Once you are done with your settings you are ready to bootstrap the cluster using Terraform::
 
@@ -173,6 +185,7 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 - **master_flavor**: an instance flavor for the master (e.g. ``n1-standard-1``)
 - **master_disk_size**: master disk size in GB
+- **master_act_as_edge**: master is acting as gateway for accessing services
 
 **Node configuration**
 
@@ -182,9 +195,20 @@ Start by creating a ``terraform.tfvars`` file. There is a template that you can 
 
 **Edge configuration**
 
+In KubeNow setup, the edge nodes (and in default setup also the the master), act as gateways with public ip:s to give access to the services running in the Kubernetes nodes. Edge nodes are ordinary worker nodes that also have an "edge" label and therefore kubernetes will run a gateway pod on these nodes. If you just do an informal deployment and don't need to load balance your service requests, the default setup with only master node acting as a gateway might be sufficient. Otherwise you could balance your service requests on 2-3 edge nodes.
+
 - **edge_count**: number of egde nodes to be created
 - **edge_flavor**: an instance flavor for the edge nodes (e.g. ``n1-standard-1``)
 - **edge_disk_size**: edges disk size in GB
+
+**Access configuration (optional)**
+
+Typically, you want the end user to access your services through a domain name (e.g. ``servicename.mydomain.com``). One option is to manually configure the DNS services, for a domain name and to load balance the requests among the edge nodes. However, doing this for each deployment can be tedious, and prone to configuration errors. If you just do an informal deployment and don't have a domain name to be used, KubeNow is automatically configuring your setup with the free `nip.io service <http://nip.io/>`_. Otherwise, we recommend to sign up for a free account on `Cloudflare <https://www.cloudflare.com>`_, that you can use as dynamic DNS service for your domain name.
+
+- **use_cloudflare**: set to true if you want KubeNow to configure your cloudflare settings during deployment (if set to false KubeNow will use the free nip.io service instead)
+- **cloudflare_email**: the mail that you used to register your Cloudflare account
+- **cloudflare_token**: an authentication token that you can generate from the Cloudflare web interface
+- **cloudflare_domain**: a zone that you created in your Cloudflare account. This typically matches your domain name (e.g. somedomain.com)
 
 Once you are done with your settings you are ready to bootstrap the cluster using Terraform::
 
