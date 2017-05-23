@@ -1,7 +1,8 @@
 Image building
 ==============
-
 KubeNow uses prebuilt images to speed up the deployment. The image building process is now been handled and automated via its related `GitHub repository <https://github.com/kubenow/image>`_ and it mainly relies on using `Packer <http://packer.io/>`_ (0.12.3 or higher).
+
+
 
 The KubeNow images are being created and exported on AWS and GCE. In the former builder a related AMI is created across all our main regions (ca-central-1, eu-central-1, eu-west-1, eu-west-2, us-east-1, us-east-2, us-west-1, us-west-2). In the second case, once Packer have built an artifact, a post-processor is being run so to export the image to both our GCE and AWS S3 buckets. Here are the direct URLs to the GCE and AWS pre-built KubeNow images:
 
