@@ -1,6 +1,6 @@
 Image building
 ==============
-KubeNow uses prebuilt images to speed up the deployment. Image continous integration is defined in this this repository: https://github.com/kubenow/image.
+KubeNow uses prebuilt images to speed up the deployment. Image continous integration is defined in this repository: https://github.com/kubenow/image.
 
 The images are exported on AWS and GCE:
 
