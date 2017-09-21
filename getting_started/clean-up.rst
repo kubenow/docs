@@ -5,12 +5,8 @@ Cloud resources are typically pay-per-use, hence it is good to release them when
 
 To release the resources, please run::
 
-  terraform destroy <cloud-provider>
+  kn destroy <cloud-provider>
 
 ``<cloud-provider>`` can be "openstack", "gce" or "aws".
 
-To delete the Clouflare DNS records, please run::
-
-  ansible-playbook playbooks/clean-cloudflare.yml
-
-**Warning:** if you create a new cluster before deleting the DNS records, the Ansible inventory will be replaced and you will have to delete the records manually.
+**Warning:** if you delete the cluster configuration directory (``my_deployment``) the cluster status will be lost, and you'll have to delete the resources manually.

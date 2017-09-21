@@ -1,31 +1,37 @@
 Deploy your first application
 =============================
 
-In this guide we are going to deploy a simple application: `cheese-deployent <https://github.com/mcapuccini/KubeNow/blob/master/examples/cheese-deployment.yml>`_. This deployment defines 3 services with a 2 replication factor. Traefik will load balance the requests among the replicas in the Kubernetes nodes. For more details about the cheese deployment, please refer to: https://docs.traefik.io/user-guide/kubernetes.
+In this guide we are going to deploy a simple application: `cheese <https://github.com/kubenow/helm-charts/tree/master/charts/cheese>`_. We will deploy 3 web pages with a 2 replication factor. The master node will act as a reverse proxy, load balancing the requests among the replicas in the Kubernetes nodes.
 
-Start by substituting ``domain_name`` with ``yourdomain.com`` in ``cheese-deployent.yml`` (where `yourdomain.com` is the domain that points to the edge nodes, through CloudFlare)::
+The simple cluster that we just deployed uses `nip.io <http://nip.io>`_ as base domain for incoming HTTP traffic. First, we need to figure out our cluster domain by running::
 
-  sed -i -e 's/domain_name/yourdomain.com/g' examples/cheese-deployment.yml
+  grep domain inventory
 
-Now, copy the ``cheese-deployent.yml`` file into the master node::
+The command will return something like ``domain=37.153.138.137.nip.io``, meaning that our cluster domain name in this case would be ``37.153.138.137.nip.io``.
 
-  ansible master -m copy -a "src=examples/cheese-deployment.yml dest=/home/ubuntu"
+In KubeNow we encourage to deploy and define SaaS-layer applications using `Helm <https://github.com/kubernetes/helm>`_. The KubeNow community maintain a Helm repository that contains applications that are developed and tested for KubeNow: https://github.com/kubenow/helm-charts. To deploy the cheese application you can run the following command, substituting ``<your-domain>`` with the domain name that you got above::
 
-Finally, deploy the application using kubectl::
+  kn helm install --name cheese --set domain=<your-domain> charts/cheese
 
-  ansible master -a "kubectl apply -f /home/ubuntu/cheese-deployment.yml"
+If everything goes well you should be able to access the web pages at:
 
-If everything goes well you should see some front-ends and back-ends showing up in the Traefik UI, and you should be able to access the services at:
+- http://stilton.<your-domain>
+- http://cheddar.<your-domain>
+- http://wensleydale.<your-domain>
 
-- http://stilton.yourdomain.com
-- http://cheddar.yourdomain.com
-- http://wensleydale.yourdomain.com
+Traefik reverse proxy
+---------------------
+
+KubeNow uses the `Traefik <https://traefik.io/>`_ reverse proxy as ingress controller for your cluster. Traefik is installed on one or more nodes, namely edge nodes, which have a public IP associated. In this way, we can access services with a few floating IP without needing LBaaS, which may not be available on certain cloud providers.
+
+In the default setting KubeNow doesn't deploy any edge node, and it runs Traefik in the master node. 
+
+Accessing the Traefik UI
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 One simple and quick way to access the Traefik UI is to tunnel via SSH to one of the edge nodes with the following command::
 
-    ssh -N -f -L localhost:8080:localhost:8080 ubuntu@<edge1-floating-ip>
-
-If you are wondering how to get the ``<edge1-floating-ip>``, then open the ``inventory`` file which is created by the ``terraform apply`` command.
+    ssh -N -f -L localhost:8080:localhost:8080 ubuntu@<your-domain>
 
 Using SSH tunnelling, the Traefik UI should be reachable at http://localhost:8080, and it should look something like this:
 
