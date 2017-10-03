@@ -21,7 +21,7 @@ We wrote up a handy CLI that wraps around the Docker container above, you can in
 
   curl -Lo kn \https://raw.githubusercontent.com/kubenow/KubeNow/|release|/bin/kn && chmod +x kn && sudo mv kn /usr/local/bin/
  
-By default `kn` uses the `latest` provisioner release, if you are planning to use another you need to set the `KUBENOW_VERSION` environment variable. For instance if you are planning to use the `master` version, you need to run:
+By default ``kn`` uses the ``latest`` provisioner release, if you are planning to use another you need to set the ``KUBENOW_VERSION`` environment variable. For instance if you are planning to use the `master` version, you need to run:
 
 .. parsed-literal::
 
