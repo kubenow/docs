@@ -11,7 +11,7 @@ The command will return something like ``domain=37.153.138.137.nip.io``, meaning
 
 In KubeNow we encourage to deploy and define SaaS-layer applications using `Helm <https://github.com/kubernetes/helm>`_. The KubeNow community maintain a Helm repository that contains applications that are developed and tested for KubeNow: https://github.com/kubenow/helm-charts. To deploy the cheese application you can run the following command, substituting ``<your-domain>`` with the domain name that you got above::
 
-  kn helm install --name cheese --set domain=<your-domain> charts/cheese
+  kn helm install --name cheese --set domain=<your-domain> kubenow/cheese
 
 If everything goes well you should be able to access the web pages at:
 
