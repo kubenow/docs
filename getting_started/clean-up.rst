@@ -7,6 +7,6 @@ To release the resources, please run::
 
   kn destroy <cloud-provider>
 
-``<cloud-provider>`` can be "openstack", "gce" or "aws".
+``<cloud-provider>`` can be "openstack", "gce", "aws" or "azure".
 
 **Warning:** if you delete the cluster configuration directory (``my_deployment``) the cluster status will be lost, and you'll have to delete the resources manually.
