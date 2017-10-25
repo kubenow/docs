@@ -233,7 +233,7 @@ Prerequisites
 
 In this section we assume that:
 
-- You have created an application api key (Service Principal) in your Microsoft Azure subscription: (https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html#creating-a-service-principal)
+- You have created an application API key (Service Principal) in your Microsoft Azure subscription: (https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html#creating-a-service-principal)
 
 Deployment configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
