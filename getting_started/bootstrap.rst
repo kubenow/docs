@@ -224,3 +224,63 @@ To check that your cluster is up and running you can run::
   kn kubectl get nodes
 
 As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
+
+Deploy on Microsoft Azure
+----------------------------
+
+Prerequisites
+~~~~~~~~~~~~~
+
+In this section we assume that:
+
+- You have created an application API key (Service Principal) in your Microsoft Azure subscription: (https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html#creating-a-service-principal)
+
+Deployment configuration
+~~~~~~~~~~~~~~~~~~~~~~~~
+First we need to initialize a deploy configuration directory by running::
+
+  kn init my_deployment
+
+The configuration directory contains a new SSH key pair for your deployments, and some `Terraform <http://terraform.io/>`_ configuration templates that we need to fill in.
+
+Locate into into ``my_deployment`` and create a ``terraform.tfvars`` configuration file, copying the Azure template::
+
+  cd my_deployment
+  cp terraform.tfvars.azure-template terraform.tfvars
+
+In this configuration file you will need to set at least:
+
+**Cluster configuration**
+
+- **cluster_prefix**: every resource in your tenancy will be named with this prefix
+- **location**: some Azure location (e.g. ``West Europe``)
+
+**Azure credentials**
+
+- **subscription_id**: your subscription id
+- **client_id**: your client id (also called appId)
+- **client_secret**: your client secret (also called password)
+- **tenant_id**: your tenant id
+
+**Master configuration**
+
+- **master_vm_size**: the vm size for the master (e.g. ``Standard_DS2_v2``)
+
+**Node configuration**
+
+- **node_count**: number of Kubernetes nodes to be created
+- **node_vm_size**: the vm size for the Kubernetes nodes (e.g. ``Standard_DS2_v2``)
+
+Deploy KubeNow
+~~~~~~~~~~~~~~
+Once you are done with your settings you are ready deploy your cluster running::
+
+  kn apply azure
+
+The first time you are going to deploy it will take longer, since the KubeNow image needs to be imported. Future deployments will be considerably faster, since the image will be already present in your user space.
+
+To check that your cluster is up and running you can run::
+
+  kn kubectl get nodes
+
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
