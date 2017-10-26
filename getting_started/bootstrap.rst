@@ -264,14 +264,12 @@ In this configuration file you will need to set at least:
 
 **Master configuration**
 
-- **master_flavor**: an instance flavor for the master (e.g. ``Standard_DS2_v2``)
-- **master_disk_size**: master disk size in GB
+- **master_vm_size**: the vm size for the master (e.g. ``Standard_DS2_v2``)
 
 **Node configuration**
 
 - **node_count**: number of Kubernetes nodes to be created
-- **node_flavor**: an instance flavor for the Kubernetes nodes (e.g. ``Standard_DS2_v2``)
-- **node_disk_size**: nodes disk size in GB
+- **node_vm_size**: the vm size for the Kubernetes nodes (e.g. ``Standard_DS2_v2``)
 
 Deploy KubeNow
 ~~~~~~~~~~~~~~
