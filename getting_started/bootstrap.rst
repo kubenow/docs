@@ -20,16 +20,15 @@ Deployment configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 First we need to initialize a deploy configuration directory by running::
 
-  kn init my_deployment
+  kn init openstack my_deployment
 
-The configuration directory contains a new SSH key pair for your deployments, and some `Terraform <http://terraform.io/>`_ configuration templates that we need to fill in.
+The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Locate into ``my_deployment`` and create a ``terraform.tfvars`` configuration file, copying the OpenStack template::
+Change directory into ``my_deployment`` :
 
   cd my_deployment
-  cp terraform.tfvars.os-template terraform.tfvars
 
-In this configuration file you will need to set at least:
+In the configuration file ``terraform.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -90,7 +89,7 @@ Deploy KubeNow
 ~~~~~~~~~~~~~~
 Once you are done with your settings you are ready deploy your cluster running::
 
-  kn apply openstack
+  kn apply
 
 The first time you are going to deploy it will take longer, since the KubeNow image needs to be imported. Future deployments will be considerably faster, since the image will be already present in your user space.
 
@@ -98,7 +97,11 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+
+  kn ssh
+
+If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
 
 Deploy on Google Cloud (GCE)
 ----------------------------
@@ -115,16 +118,15 @@ Deployment configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 First we need to initialize a deploy configuration directory by running::
 
-  kn init my_deployment
+  kn init gce my_deployment
 
-The configuration directory contains a new SSH key pair for your deployments, and some `Terraform <http://terraform.io/>`_ configuration templates that we need to fill in.
+The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Locate into into ``my_deployment`` and create a ``terraform.tfvars`` configuration file, copying the GCE template::
+Change directory into ``my_deployment`` :
 
   cd my_deployment
-  cp terraform.tfvars.gce-template terraform.tfvars
 
-In this configuration file you will need to set at least:
+In the configuration file ``terraform.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -163,7 +165,11 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+
+  kn ssh
+
+If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
 
 Deploy on Amazon Web Services (AWS)
 -----------------------------------
@@ -179,16 +185,15 @@ Deployment configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 First we need to initialize a deploy configuration directory by running::
 
-  kn init my_deployment
+  kn init aws my_deployment
 
-The configuration directory contains a new SSH key pair for your deployments, and some `Terraform <http://terraform.io/>`_ configuration templates that we need to fill in.
+The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Locate into ``my_deployment`` and create a ``terraform.tfvars`` configuration file, copying the AWS template::
+Change directory into ``my_deployment`` :
 
   cd my_deployment
-  cp terraform.tfvars.aws-template terraform.tfvars
 
-In this configuration file you will need to set at least:
+In the configuration file ``terraform.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -223,7 +228,11 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+
+  kn ssh
+
+If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
 
 Deploy on Microsoft Azure
 ----------------------------
@@ -239,16 +248,15 @@ Deployment configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 First we need to initialize a deploy configuration directory by running::
 
-  kn init my_deployment
+  kn init azure my_deployment
 
-The configuration directory contains a new SSH key pair for your deployments, and some `Terraform <http://terraform.io/>`_ configuration templates that we need to fill in.
+The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Locate into into ``my_deployment`` and create a ``terraform.tfvars`` configuration file, copying the Azure template::
+Change directory into ``my_deployment`` :
 
   cd my_deployment
-  cp terraform.tfvars.azure-template terraform.tfvars
 
-In this configuration file you will need to set at least:
+In the configuration file ``terraform.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -283,4 +291,8 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+
+  kn ssh
+
+If everything went well, now you are ready to :doc:`deploy your first application <first-app>`.
