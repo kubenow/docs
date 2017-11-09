@@ -1,5 +1,5 @@
 <!-- 
-Thanks for sending a Pull Request (PR)! Please make sure to read the contributing guidelinse before you proceed: https://github.com/kubenow/KubeNow/blob/master/CONTRIBUTING.md
+Thanks for sending a Pull Request (PR)! Please make sure to read the contributing guideline before you proceed: https://github.com/kubenow/KubeNow/blob/master/CONTRIBUTING.md
 -->
 
 ## Change content and motivation
