@@ -97,7 +97,7 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the ``kn ssh`` command::
 
   kn ssh
 
@@ -165,7 +165,7 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the ``kn ssh`` command::
 
   kn ssh
 
@@ -228,7 +228,7 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the ``kn ssh`` command::
 
   kn ssh
 
@@ -291,7 +291,7 @@ To check that your cluster is up and running you can run::
 
   kn kubectl get nodes
 
-As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the kn ssh command.
+As long as you are in the ``my_deployment`` directory you can use ``kubectl`` over SSH to control Kubernetes. If you want to open an interactive SSH terminal onto the master then you can use the ``kn ssh`` command::
 
   kn ssh
 
