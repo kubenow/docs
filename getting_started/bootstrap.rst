@@ -24,7 +24,7 @@ First we need to initialize a deploy configuration directory by running::
 
 The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Change directory into ``my_deployment`` :
+Locate into ``my_deployment`` :
 
   cd my_deployment
 
@@ -122,7 +122,7 @@ First we need to initialize a deploy configuration directory by running::
 
 The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Change directory into ``my_deployment`` :
+Locate into ``my_deployment`` :
 
   cd my_deployment
 
@@ -189,7 +189,7 @@ First we need to initialize a deploy configuration directory by running::
 
 The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Change directory into ``my_deployment`` :
+Locate into ``my_deployment`` :
 
   cd my_deployment
 
@@ -252,7 +252,7 @@ First we need to initialize a deploy configuration directory by running::
 
 The configuration directory contains a new SSH key pair for your deployments, and a `Terraform <http://terraform.io/>`_ configuration template that we need to fill in.
 
-Change directory into ``my_deployment`` :
+Locate into ``my_deployment`` :
 
   cd my_deployment
 
