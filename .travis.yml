@@ -10,4 +10,19 @@ install:
 
 script:
   - sphinx-build -W -b html -d _build/doctrees   . _build/html
-  
+
+notifications:
+  email: false
+  slack:
+    secure: >
+      Q1Ln2QTsVCzvxQUUZUHEgY1s48mk6qv0bfCH4k4szzQk3rYRoM0oKz+CxqlDHaaeav
+      J7tbYtiYh+rBnTTUKM7EIduoYnwJ98qsCMPoRlJl/5hknW9wF4bhjX9QouFSrdqrqh
+      8mK/be/QU95D+f82Z2yuJTtBMakmmYhhbWkuecTr6g+uukLRDIzSZKJnyXKxh3xiKz
+      kT1RMqn3dg6QFNYWGMsI9aZBYaDpMYHbnW1BPQClRvoTxtojQqQsAhhnOIJI3Z4xkz
+      IxNzzkcj3xFU3e6bUEVO6A9/GzRgddrUBzyTQEwj/JuhPgxlQe0Effniyp29Y31C2i
+      AMnCCXH+lGCJe18q254Q7xzg5jRJiEKUgPKui3Ku2tK9GLlDdXngUcMTlmwcZI227V
+      79oryqW7mk1Bl5+RqzEHqcTJhS8+iSLZdwXaH8n7Ne1UJABaDRS9/X2SsXP6h5gO9R
+      UTvj1+zypdLnvhEyUhM9KywB/31/KsIM9bUC023zS2vVtiOD/TVY3ZVmVdDx8UXsfc
+      3s3InRGJ0OVu3eO5ILHyoZnYDYXFS/3YoXJaFsEbyMxIDEKRMvhMleTxZHXUu7Win+
+      EKEFi3Yv6IfZbbj4DTO7RdlUWHMTUMkFRYMV6I/ftuZNAb+6+RtlKGL5wwANclkbE7
+      6JqZ67WSQPtl6VklfYHLYRY=
