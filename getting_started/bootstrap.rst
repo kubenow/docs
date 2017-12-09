@@ -283,7 +283,7 @@ Deploy KubeNow
 ~~~~~~~~~~~~~~
 Once you are done with your settings you are ready deploy your cluster running::
 
-  kn apply azure
+  kn apply
 
 The first time you are going to deploy it will take longer, since the KubeNow image needs to be imported. Future deployments will be considerably faster, since the image will be already present in your user space.
 
