@@ -17,13 +17,14 @@ In order to get the provisioning tools please run:
 
 We wrote up a handy CLI that wraps around the Docker container above, you can install it with a one-liner:
 
-.. parsed-literal::
+.. ifconfig:: release == "master"
 
-  curl -Lo kn \https://raw.githubusercontent.com/kubenow/KubeNow/|release|/bin/kn && chmod +x kn && sudo mv kn /usr/local/bin/
- 
-By default ``kn`` uses the ``latest`` provisioners release, if you are planning to use another version you need to set the ``KUBENOW_VERSION`` environment variable. For instance if you are planning to use the `master` version, you need to run:
+  .. parsed-literal::
 
-.. parsed-literal::
+    curl -Lo kn \https://raw.githubusercontent.com/kubenow/KubeNow/|release|/bin/kn && chmod +x kn && sudo mv kn /usr/local/bin/
 
-  export KUBENOW_VERSION="master"
- 
+.. ifconfig:: release != "master"
+
+  .. parsed-literal::
+
+    curl -Lo kn \https://github.com/kubenow/KubeNow/releases/download/|release|/kn && chmod +x kn && sudo mv kn /usr/local/bin/
