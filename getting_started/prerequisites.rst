@@ -27,4 +27,4 @@ We wrote up a handy CLI that wraps around the Docker container above, you can in
 
   .. parsed-literal::
 
-    curl -Lo kn https://github.com/kubenow/KubeNow/releases/download/|release|/kn && chmod +x kn && sudo mv kn /usr/local/bin/
+    curl -Lo kn \https://github.com/kubenow/KubeNow/releases/download/|release|/kn && chmod +x kn && sudo mv kn /usr/local/bin/
