@@ -1,17 +1,15 @@
 Edge Nodes
 ==========
-Edge nodes are specialized service nodes with an associated public IP address, and they act as reverse proxies, and load balancers, for the services that are exposed to the Internet. This behavior is implemented using `Traefik <https://traefik.io>`_ .
+Edge nodes are specialized service nodes with an associated public IP address, and they run `Traefik <https://traefik.io>`_ acting as reverse proxies, and load balancers, for the services that are exposed to the Internet. In the default settings, we don't deploy any edge node enabling the reverse proxy logic in the master node instead. However, in production settings we recommend to deploy one or more edge nodes to reduce the load in the master.
 
-However, when IP addresses are particularly scarce, it is possible to not deploy any edge node, and to use the master node as reverse proxy instead.
+To deploy edge nodes, it is sufficient to uncomment the following lines in the ``terraform.tfvars`` file, and to set the desired number of edge nodes, along with an available instance flavor::
 
-Edge nodes' settings can be changed within the `terraform.tfvars` created automatically when initializing a :doc:`deploy configuration directory <../getting_started/bootstrap>` by running::
-
-  kn init <your-provider> my_deployment
-
-Precisely, here below can be found an example of the configuration lines to be optionally tweaked::
+  # Master configuration (mandatory in general, above all for single-server setup)
+  master_flavor = "your-master-flavor"
+  master_as_edge = "false"
 
   # Edge configuration
-  # edge_count = "2"
-  # edge_flavor = "your-edge-flavor"
-  
-Thus it suffices to just decomment these lines and modify the above placeholders with the desired number of edge nodes and the pick a flavor among the ones available via the used provider's.
+  edge_count = "2"
+  edge_flavor = "your-edge-flavor"
+
+Please notice that we set ``master_as_edge = "false"`` to disable Traefik in the master node.

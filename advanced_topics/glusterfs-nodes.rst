@@ -1,17 +1,10 @@
 GlusterFS Nodes
 ===============
-Storage nodes are specialized nodes too. They run **only** the shared distributed file system, and they are attached to a block storage volume to provide additional capacity. The shared file system is implemented by `GlusterFS <https://www.gluster.org>`_ and `Heketi <https://github.com/heketi/heketi>`_ .
-The two frameworks enable user applications for provisioning shared volumes seamlessly, trough the standard `Kubernetes API <https://kubernetes.io/>`_ .
+GlusterFS nodes are specialized service nodes. They run only `GlusterFS <https://www.gluster.org>`_ and they are attached to a block storage volume to provide additional capacity. In the default settings, we don't deploy GlusterFS nodes, as it is not required in many use cases. However, GlusterFS can be particularly convenient when a distributed file system is needed for container synchronization.
 
-GlusterFS nodes settings can be changed within the `terraform.tfvars` created automatically when initializing a :doc:`deploy configuration directory <../getting_started/bootstrap>` by running::
-
-  kn init <your-provider> my_deployment
-
-Precisely, here below can be found an example of the configuration lines to be tweaked optionally if need be::
+To deploy GlusterFS nodes, it is sufficient to uncomment the following lines in the ``terraform.tfvars`` file, and to set the desired number of edge nodes, along with an available instance flavor and block storage disk size::
 
  # Gluster configuration
- # glusternode_count = "1"
- # glusternode_flavor = "your-glusternode-flavor"
- # glusternode_extra_disk_size = "200" # Size in GB
-
-As you may notice, these lines are commented by default thus leaving a user freedom of choosing custom solutions for a shared distributed file system if need be (which most of the time is actually the case for distributed microservice-oriented applications).
+ glusternode_count = "1"
+ glusternode_flavor = "your-glusternode-flavor"
+ glusternode_extra_disk_size = "200" # Size in GB

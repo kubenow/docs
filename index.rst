@@ -19,17 +19,16 @@ Welcome to KubeNow's documentation! This is a place where we aim to help you to 
   troubleshoot/trouble-os
   troubleshoot/trouble-kubernetes
   troubleshoot/trouble-misc
-  
+
 .. toctree::
   :maxdepth: 2
   :caption: Advanced Topics
 
-  advanced_topics/advanced_topics_intro
-  advanced_topics/cloudflare-dns
-  advanced_topics/cloudflare-proxied-dns
   advanced_topics/edge-nodes
   advanced_topics/glusterfs-nodes
   advanced_topics/single-node-deployments
+  advanced_topics/cloudflare-dns
+  advanced_topics/cloudflare-proxied
 
 .. toctree::
   :maxdepth: 2
