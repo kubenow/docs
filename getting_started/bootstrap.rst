@@ -28,7 +28,7 @@ Locate into ``my_deployment`` :
 
   cd my_deployment
 
-In the configuration file ``terraform.tfvars`` you will need to set at least:
+In the configuration file ``config.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -126,7 +126,7 @@ Locate into ``my_deployment`` :
 
   cd my_deployment
 
-In the configuration file ``terraform.tfvars`` you will need to set at least:
+In the configuration file ``config.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -193,7 +193,7 @@ Locate into ``my_deployment`` :
 
   cd my_deployment
 
-In the configuration file ``terraform.tfvars`` you will need to set at least:
+In the configuration file ``config.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
@@ -256,7 +256,7 @@ Locate into ``my_deployment`` :
 
   cd my_deployment
 
-In the configuration file ``terraform.tfvars`` you will need to set at least:
+In the configuration file ``config.tfvars`` you will need to set at least:
 
 **Cluster configuration**
 
