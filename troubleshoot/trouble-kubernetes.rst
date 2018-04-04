@@ -13,7 +13,7 @@ List kubernetes pods
   kubectl get pods --all-namespaces
 
   # With Ansible from your local computer:
-  ansible master -a "kubectl get pods --all-namespaces"
+  kn ansible master -a "kubectl get pods --all-namespaces"
 
 Describe status of a specific pod
 ---------------------------------
@@ -24,7 +24,7 @@ Describe status of a specific pod
   kubectl describe pod <pod id> --all-namespaces
 
   # With Ansible from your local computer:
-  ansible master -a "kubectl describe pod <pod id> --all-namespaces"
+  kn ansible master -a "kubectl describe pod <pod id> --all-namespaces"
 
 Get the kubelet service log
 ---------------------------
@@ -35,4 +35,4 @@ Get the kubelet service log
   sudo journalctl -r -u kubelet
 
   #  With Ansible from your local computer:
-  ansible master -a "journalctl -r -u kubelet"
+  kn ansible master -a "journalctl -r -u kubelet"

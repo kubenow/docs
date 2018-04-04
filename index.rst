@@ -12,7 +12,7 @@ Welcome to KubeNow's documentation! This is a place where we aim to help you to 
    getting_started/clean-up
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :caption: Troubleshooting
 
   troubleshoot/trouble-terraform
@@ -21,7 +21,17 @@ Welcome to KubeNow's documentation! This is a place where we aim to help you to 
   troubleshoot/trouble-misc
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
+  :caption: Advanced Topics
+
+  advanced_topics/edge-nodes
+  advanced_topics/glusterfs-nodes
+  advanced_topics/single-node-deployments
+  advanced_topics/cloudflare-dns
+  advanced_topics/cloudflare-proxied
+
+.. toctree::
+  :maxdepth: 2
   :caption: Developers guide
 
   developers/build-img

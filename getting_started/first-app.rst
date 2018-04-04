@@ -31,9 +31,9 @@ Accessing the Traefik UI
 
 One simple and quick way to access the Traefik UI is to tunnel via SSH to one of the edge nodes with the following command::
 
-    ssh -N -f -L localhost:8080:localhost:8080 ubuntu@<your-domain>
+    ssh -N -f -L localhost:8081:localhost:8081 ubuntu@<your-domain>
 
-Using SSH tunnelling, the Traefik UI should be reachable at http://localhost:8080, and it should look something like this:
+Using SSH tunnelling, the Traefik UI should be reachable at http://localhost:8081, and it should look something like this:
 
 .. image:: ../img/traefik_UI_example.png
 
