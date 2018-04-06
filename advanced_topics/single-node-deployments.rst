@@ -2,7 +2,7 @@ Single-Node Deployments
 =======================
 When resources are scarce, or for testing purpose, KubeNow enables single-node deployments. In fact, it is possible to deploy the master node only, which will automatically enabled for service scheduling.
 
-You can achieve this by commenting all of the lines for the other instance types (i.e. edge node, gluster node and worker node) in the ``terraform.tfvars`` file, leaving the master node only as it is shown below::
+You can achieve this by commenting all of the lines for the other instance types (i.e. edge node, gluster node and worker node) in the ``config.tfvars`` file, leaving the master node only as it is shown below::
 
     # Master configuration (mandatory in general, above all for single-server setup)
     master_flavor = "your-master-flavor"
