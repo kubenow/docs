@@ -11,11 +11,9 @@ To deploy GlusterFS nodes, it is sufficient to uncomment the following lines in 
  
 How to claim a GlusterFS volume
 -------------------------------
-KubeNow is configured in order to employ the Kubernetes `dynamic volume provisioning` feature. Basically it allows storage volumes to be created on-demand. Therefore this feature eliminates the need for users to pre-provision storage. See more information `here <https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/>`_.
+KubeNow is configured to employ the Kubernetes `dynamic volume provisioning`, enabling GlusterFS storage volumes to be created on-demand. See more information `here <https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/>`_. GlusterFS is configured as default `StorageClass`. Hence, when a user creates a `PersistentVolumeClaim` with unspecified ``storageClassName`` (i.e. left empty), the `DefaultStorageClass` admission controller automatically adds the `storageClassName` field pointing to GlusterFS. 
 
-In KubeNow we have marked GlusterFS as specific default `StorageClass` by adding the ``storageclass.kubernetes.io/is-default-class`` annotation to it (` more details <https://github.com/kubenow/KubeNow/blob/bd0562537efca511db53d82947da16391303c641/playbooks/roles/heketi-gluster/templates/storage-class.yml>`_). When a default `StorageClass` exists in a cluster and a user creates a `PersistentVolumeClaim` with `storageClassName` **unspecified** (i.e. left empty), the `DefaultStorageClass` admission controller automatically adds the `storageClassName` field pointing to the default storage class. Therefore GlusterFS is also acting as default volume provider.
-
-Practically speaking, with KubeNow users can request dynamically provisioned storage by simply leaving the `storageClassName` field empty within their `PersistentVolumeClaim` template. Here is an example::
+In practice, users can request GlusterFS dynamically provisioned storage by simply leaving the `storageClassName` field empty within their `PersistentVolumeClaim` template. Here is an example::
    
  apiVersion: v1
  kind: PersistentVolumeClaim
@@ -28,5 +26,3 @@ Practically speaking, with KubeNow users can request dynamically provisioned sto
     resources:
         requests:
         storage: 1Gi
-
-**NOTE**: **there can be at most one default storage class on a cluster**, or a `PersistentVolumeClaim` without `storageClassName` explicitly specified cannot be created.
