@@ -4,7 +4,7 @@ Prerequisites
 Install Docker
 --------------
 
-KubeNow provisioners are distributed via `Docker <https://www.docker.com/>`_. Please start by installing Docker on your workstation: `Install Docker <https://docs.docker.com/engine/installation/>`_.
+KubeNow provisioners are distributed via `Docker <https://www.docker.com/>`_ and based on Kubernetes 1.9.2 . Please start by installing Docker on your workstation: `Install Docker <https://docs.docker.com/engine/installation/>`_.
 
 Get KubeNow
 -----------
