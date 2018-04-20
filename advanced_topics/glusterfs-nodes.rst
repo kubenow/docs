@@ -8,3 +8,21 @@ To deploy GlusterFS nodes, it is sufficient to uncomment the following lines in 
  glusternode_count = "1"
  glusternode_flavor = "your-glusternode-flavor"
  glusternode_extra_disk_size = "200" # Size in GB
+
+How to claim a GlusterFS volume
+-------------------------------
+KubeNow is configured to employ the Kubernetes `dynamic volume provisioning <https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/>`_, enabling GlusterFS storage volumes to be created on-demand. In addition, GlusterFS is configured as default StorageClass, meaning that when a user creates a PersistentVolumeClaim with unspecified ``storageClassName`` (i.e. left empty), the `DefaultStorageClass` admission controller automatically adds the GlusterFS `storageClassName`.
+
+In practice, users can request GlusterFS dynamically provisioned storage by simply leaving the `storageClassName` field empty within their `PersistentVolumeClaim` template. An example follows::
+
+ apiVersion: v1
+ kind: PersistentVolumeClaim
+ metadata:
+  name: name-you-choose
+  spec:
+    accessModes:
+      - ReadWriteOnce
+    storageClassName: # left empty
+    resources:
+      requests:
+        storage: 1Gi
