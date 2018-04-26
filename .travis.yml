@@ -12,8 +12,10 @@ script:
   - sphinx-build -W -b html -d _build/doctrees   . _build/html
 
 notifications:
-  email: false
+  email: true
   slack:
+    on_success: change
+    on_failure: always
     secure: >
       Q1Ln2QTsVCzvxQUUZUHEgY1s48mk6qv0bfCH4k4szzQk3rYRoM0oKz+CxqlDHaaeav
       J7tbYtiYh+rBnTTUKM7EIduoYnwJ98qsCMPoRlJl/5hknW9wF4bhjX9QouFSrdqrqh
