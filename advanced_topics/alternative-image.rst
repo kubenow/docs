@@ -1,12 +1,39 @@
 Alternative Image
 ======================
-`Cloudflare <https://www.cloudflare.com>`_ runs one of the largest authoritative DNS networks in the world. In order to resolve domain names for exposed services, KubeNow can optionally configure the Cloudflare dynamic DNS service, so that a base domain name will resolve to the edge nodes (or the master node if no edge node is deployed).
+You can use an alternative boot image for your VMs.
 
-To configure the Cloudflare dynamic DNS service, it is sufficient to uncomment the following lines in the ``config.tfvars`` file, specifying credentials, domain and subdomain::
+Currently KubeNow doesn't support automatic down- and uploading of custom images, therefore you need to make sure image is already present in the cloud provider image repositpoty.
+You also need to set the parameter ``skip_image_import = "true"``
 
-  # Cloudflare configuration (optional)
-  use_cloudflare = "true"
-  cloudflare_email = "your-cloudflare-email"
-  cloudflare_token = "your-cloudflare-token"
-  cloudflare_domain = "your-domain-name"
-  cloudflare_subdomain = "your-subdomain-name"
+Depending on your cloud-provider, change following lines in the ``config.tfvars`` file (Ubuntu Xenial 16.04 is used in the example below).
+
+Amazon::
+  
+  boot_image = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-201803*"
+  skip_image_import = "true"
+  
+Google cloud::
+
+  boot_image = "ubuntu-1604-lts"
+  skip_image_import = "true"
+  
+OpenStack::
+
+  boot_image = "Ubuntu 16.04 LTS (Xenial Xerus) - latest"
+  skip_image_import = "true"
+  
+Microsoft Azure::
+
+  boot_image_public {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+  skip_image_import = "true"
+  
+  # On Microsoft Azure you also need to comment out or remove boot_image parameter
+  # boot_image = "KubeNow-xx"
+
+  
+
