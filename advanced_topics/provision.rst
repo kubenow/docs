@@ -54,52 +54,6 @@ Examples::
       }
     }
   }
-  
-**Action type = "helm"**
-
-helm speciffic variables::
-  
-  chart_repo       = "url to chart repo (optional - not needed if chart is in official repo)"
-  chart_repo_name  = "a name for the chart repo (optional - not needed if chart is in official repo)"
-  chart_name       = "name of chart to apply"
-  release_name     = "a release name for this helm application"
-  values           = "json-object specifying values (hcl-json-syntax https://github.com/hashicorp/hcl)"
-  
-  chart_repo
-chart_repo_name
-chart_name
-release_name
-
-
-Examples::
-
-  #
-  # This block is equivalent to command:
-  #
-  # ansible-playbook $ANSIBLE_OPT playbooks/install-core.yml
-  #
-  provision = {
-    "action" = {
-      "type"       = "ansible-playbook"
-      "playbook"   = "playbooks/install-core.yml"
-    }
-  }
-  
-  #
-  # This block is equivalent to command:
-  #
-  # ansible-playbook $ANSIBLE_OPT -e "$extra_vars" playbooks/create-pvc.yml
-  #
-  provision = {
-    "action" = {
-      "type"      = "ansible-playbook"
-      "playbook"  = "playbooks/create-pvc.yml"
-      "extra_vars" = {
-        "claim_name"  = "galaxy-pvc"
-        "storage"     = "95G"
-      }
-    }
-  }
 
 **Action type = "local-exec"**
 
