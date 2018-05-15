@@ -30,6 +30,7 @@ Welcome to KubeNow's documentation! This is a place where we aim to help you to 
   advanced_topics/cloudflare-dns
   advanced_topics/cloudflare-proxied
   advanced_topics/alternative-image
+  advanced_topics/scale
   advanced_topics/provision
 
 .. toctree::
