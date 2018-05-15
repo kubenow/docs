@@ -3,7 +3,7 @@ Manual Cluster Scaling
 KubeNow is now featuring the ability to add or delete nodes to your cluster with the help of the command ``kn scale``.
 
 While your cluster is deployed and running, it is necessary first to update the number of nodes in the ``config.tfvars`` file created by the very first command ``kn init`` as explained `here <../getting_started/bootstrap.html>`_ .
-Currently ``kn-scale`` is only supporting adding and removing `worker nodes` or `edge nodes` (not `master nodes`). Last but not least. it is important to have at least one ``node`` left with enough space for your running services.
+Currently ``kn-scale`` is only supporting adding and removing `worker nodes` or `edge nodes` (not `master nodes`). Last but not least, it is important to have at least one ``node`` left with enough space for your running services.
 
 Once the ``config.tfvars`` has been updated with the new desired number of nodes, then we simply run the command::
 
