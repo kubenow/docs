@@ -1,6 +1,6 @@
 Provisioning
 ======================
-You can add provision block in your ``config.tfvars``::
+You can execute provisioning on your master node by adding a provision block in your ``config.tfvars``::
 
 The provisioning block is automatically executed via the ``kn apply`` command
 
@@ -10,20 +10,12 @@ A provision block can have one or several ``action{ }`` blocks
 
 The ``type`` of the ``action{ }`` block can be ``ansible-playbook`` or ``local-exec``
 
-helm::
-
-
-local-exec::
-command
-
-
-
 **Action type = "ansible-playbook"**
 
 ansible-playbook speciffic variables::
   
   playbook    = "path-to-playbook (relative config-directory)"
-  extra_vars  = "json-object specifying extra varibles (hcl-json-syntax https://github.com/hashicorp/hcl)"
+  extra_vars  = "json-obj of extra varibles (hcl-json-syntax https://github.com/hashicorp/hcl)"
 
 Examples::
 
