@@ -8,7 +8,7 @@ You can manyally run only the provisioners with command ``kn provision``
 
 A provision block can have one or several ``action{ }`` blocks
 
-The ``type`` of the ``action{ }`` block can be ``ansible-playbook``, ``helm`` or ``local-exec``
+The ``type`` of the ``action{ }`` block can be ``ansible-playbook`` or ``local-exec``
 
 helm::
 
