@@ -10,6 +10,8 @@ A provision block can have one or several ``action{ }`` blocks
 
 The ``type`` of the ``action{ }`` block can be ``ansible-playbook`` or ``local-exec``
 
+The Ansible version being used is the version installed in the KubeNow provisioner Docker image
+
 **Action type = "ansible-playbook"**
 
 ansible-playbook speciffic variables::
