@@ -1,6 +1,6 @@
 Provisioning
 ======================
-You can execute provisioning on your master node by adding a provision block in your ``config.tfvars``::
+You can execute provisioning on your master node by adding a provision block in your ``config.tfvars``
 
 The provisioning block is automatically executed via the ``kn apply`` command
 
