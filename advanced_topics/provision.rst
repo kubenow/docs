@@ -1,28 +1,23 @@
 Provisioning
-======================
-You can execute provisioning on your master node by adding a provision block in your ``config.tfvars``
+============
+It is now possible to both automatically and manually provision the cluster's instances via the master node. This is done by simply adding a provision block in your ``config.tfvars`` (which by now you should be familiar with). If available, such block will be automatically executed when the command ``kn apply`` is run. Otherwise we can also manually execute it with the new command ``kn provision``.
 
-The provisioning block is automatically executed via the ``kn apply`` command
+A provision block can have one or several ``action{ }`` sub-block/s. The latter will always have at least a ``type`` field, which can either be ``ansible-playbook`` or ``local-exec``. Based on these two scenarios, it is then necessary to introduce a couple of specific variables as shown in the examples here below.
 
-You can manyally run only the provisioners with command ``kn provision``
+**Note:** The Ansible version being used is the one installed in the KubeNow Docker image.
 
-A provision block can have one or several ``action{ }`` blocks
+Action type = "ansible-playbook"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``type`` of the ``action{ }`` block can be ``ansible-playbook`` or ``local-exec``
-
-The Ansible version being used is the version installed in the KubeNow provisioner Docker image
-
-**Action type = "ansible-playbook"**
-
-ansible-playbook speciffic variables::
+In this scenario, the following *ansible-playbook* specific variables will be used, with the exception of ``extra_vars`` which is optional::
   
   playbook    = "path-to-playbook (relative config-directory)"
-  extra_vars  = "json-obj of extra varibles (hcl-json-syntax https://github.com/hashicorp/hcl)"
+  extra_vars  = "json-obj of extra variables (complying to hcl-json-syntax, see https://github.com/hashicorp/hcl)"
 
-Examples::
+Example **without** ``extra_vars``::
 
   #
-  # This block is equivalent to command:
+  # This block is equivalent to the command:
   #
   # ansible-playbook $ANSIBLE_OPT playbooks/install-core.yml
   #
@@ -33,8 +28,10 @@ Examples::
     }
   }
   
+Example **with** ``extra_vars``::
+
   #
-  # This block is equivalent to command:
+  # This block is equivalent to the command:
   #
   # ansible-playbook $ANSIBLE_OPT -e "$extra_vars" playbooks/create-pvc.yml
   #
@@ -49,16 +46,17 @@ Examples::
     }
   }
 
-**Action type = "local-exec"**
+Action type = "local-exec"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-local-exec speciffic variables::
+In this other case, we only have one *local-exec* specific variable that must be present in order to work::
 
-  command  = "command to execute - can be path to script (relative config-directory)"
+  command  = "command to execute - can be path to a script (relative config-directory)"
   
-Example `local-exec`::
+Example::
 
   #
-  # This block is equivalent to command:
+  # This block is equivalent to the command:
   #
   # plugins/phnmnl/KubeNow-plugin/bin/phenomenal-post-install.sh
   #
