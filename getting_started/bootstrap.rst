@@ -58,14 +58,14 @@ Thus in this specific case the above mentioned fields will be set as it follows:
 **Master configuration**
 
   - **master_flavor**: an instance flavor for the master
-  - **master_extra_disk_size** **[optinal]**: adds an extra disk with specified size to the node 
+  - **master_extra_disk_size** **[optional]**: adds an extra disk with specified size to the node 
 
 **Node configuration**
 
   - **node_count**: number of Kubernetes nodes to be created (no floating IP is needed for these nodes)
   - **node_flavor**: an instance flavor name for the Kubernetes nodes
-  - **node_extra_disk_size** **[optinal]**: adds an extra disk with specified size to the node
-  - **node_assign_floating_ip** **[optinal]**: adds a floating ip to this node
+  - **node_extra_disk_size** **[optional]**: adds an extra disk with specified size to the node
+  - **node_assign_floating_ip** **[optional]**: adds a floating ip to this node
   
 
 If you are wondering yet again where you can fetch correct flavor label names then no worries, you are not being a stranger here. The openstack command-line interface will come in handy. Just run the following command::
