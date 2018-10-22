@@ -35,6 +35,7 @@ In the configuration file ``config.tfvars`` you will need to set at least:
 - **cluster_prefix**: every resource in your tenancy will be named with this prefix
 - **floating_ip_pool**: a floating IP pool label
 - **external_network_uuid**: the uuid of the external network in the OpenStack tenancy
+- **ports_ingress_tcp** **[optional]**: ports to open, default = ["22", "80", "443"]
 
 If you are wondering where you can get ``floating_ip_pool`` and ``external_network_uuid``, then one way is to inquiry your OpenStack settings by running::
 
@@ -58,7 +59,7 @@ Thus in this specific case the above mentioned fields will be set as it follows:
 **Master configuration**
 
   - **master_flavor**: an instance flavor for the master
-  - **master_extra_disk_size** **[optional]**: adds an extra disk with specified size to the node 
+  - **master_extra_disk_size** **[optional]**: adds an extra disk with specified size to the node
 
 **Node configuration**
 
@@ -66,7 +67,7 @@ Thus in this specific case the above mentioned fields will be set as it follows:
   - **node_flavor**: an instance flavor name for the Kubernetes nodes
   - **node_extra_disk_size** **[optional]**: adds an extra disk with specified size to the node
   - **node_assign_floating_ip** **[optional]**: adds a floating ip to this node
-  
+
 
 If you are wondering yet again where you can fetch correct flavor label names then no worries, you are not being a stranger here. The openstack command-line interface will come in handy. Just run the following command::
 
@@ -141,6 +142,11 @@ In the configuration file ``config.tfvars`` you will need to set at least:
 - **gce_project**: your project id
 - **gce_zone**: some GCE zone (e.g. ``europe-west1-b``)
 
+
+**Networking**
+
+- **ports_ingress_tcp** **[optional]**: ports to open, default = ["22", "80", "443"]
+
 **Master configuration**
 
 - **master_flavor**: an instance flavor for the master (e.g. ``n1-standard-2``)
@@ -211,6 +217,10 @@ In the configuration file ``config.tfvars`` you will need to set at least:
 - **aws_access_key_id**: your access key id
 - **aws_secret_access_key**: your secret access key
 
+**Networking**
+
+- **ports_ingress_tcp** **[optional]**: ports to open, default = ["22", "80", "443"]
+
 **Master configuration**
 
 - **master_instance_type**: an instance type for the master (e.g. ``t2.medium``)
@@ -273,6 +283,10 @@ In the configuration file ``config.tfvars`` you will need to set at least:
 - **client_id**: your client id (also called appId)
 - **client_secret**: your client secret (also called password)
 - **tenant_id**: your tenant id
+
+**Networking**
+
+- **ports_ingress_tcp** **[optional]**: ports to open, default = ["22", "80", "443"]
 
 **Master configuration**
 
