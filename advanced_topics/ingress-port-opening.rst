@@ -9,11 +9,11 @@ On some deployments you might need to manually configure ports in order to allow
 
  ....
 
-So we've modified the field ``ports_ingress_tcp`` so to read **ports_ingress_tcp = ["22", "80", "443", 7443", "9443"]**.
+Hence we've modified the field ``ports_ingress_tcp`` so to read **ports_ingress_tcp = ["22", "80", "443", 7443", "9443"]**.
 
 To Keep in Mind
 ~~~~~~~~~~~~~~~
-It is important to consider potential security risks to avoid future issues. While opening ports does put you more at risk than having none open, you are only in danger if an attack can exploit the service that is using that port. A port is not an all access pass to a cluster/network if an attacker happens upon it. Security is a complex topic indeed and can vary from case to case. Nevertheless here are some best practices for porper configuration:
+It is important to consider potential security risks to avoid future issues. While opening ports does put you more at risk than having none open, you are only in danger if an attack can exploit the service that is using that port. A port is not an all access pass to a cluster/network if an attacker happens upon it. Security is a complex topic indeed and can vary from case to case. Nevertheless here are some best practices for a proper configuration:
 
 - **Block by default**: block all traffic by default and explicitly allow only specific traffic to known services. This strategy provides good control over the traffic and reduces the possibility of a breach because of service misconfiguration.
 
