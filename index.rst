@@ -32,6 +32,7 @@ Welcome to KubeNow's documentation! This is a place where we aim to help you to 
   advanced_topics/alternative-image
   advanced_topics/scale
   advanced_topics/provision
+  advanced_topics/ingress-port-opening
 
 .. toctree::
   :maxdepth: 2
