@@ -10,3 +10,4 @@ To configure the Cloudflare dynamic DNS service, it is sufficient to uncomment t
   cloudflare_token = "your-cloudflare-token"
   cloudflare_domain = "your-domain-name"
   cloudflare_subdomain = "your-subdomain-name"
+  cloudflare_zone_id = "your-domain-zone_id"
